@@ -5,17 +5,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
         <title>TOBA Titan Online Banking Application</title>
         <link rel="stylesheet" href="styles/main.css" type="text/css"/>
     </head>
     <body>
+        <div><h1>TOBA Titan Online Banking Application</h1></div>
+        <div><h2>Password Reset</h2></div>
+        <p>Enter new password below.</p>
+        <p><i>${message}</i></p>
         <form method="post" action="resetPassword">
             <input type="hidden" name="action" value="reset">       
             <label class="pad_top">New Password:</label>
             <input type="password" name="newPassword" value="${passWord}"><br>     
             <label>&nbsp;</label>
-            <input type="submit" value="Login" class="margin_left">
+            <input type="submit" value="Reset" class="margin_left">
         </form>
     </body>
 </html>

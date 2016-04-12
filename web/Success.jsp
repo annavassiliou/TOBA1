@@ -33,7 +33,9 @@
         <label>Email:</label>
         <span>${user.email}</span><br>
         <label>Username:</label>
+        <span>${user.userName}</span><br>
         <label>Password:</label>
+        <span>${user.passWord}</span><br>
 
         <p>
         <a href="index.jsp">Return to Main Page</a>

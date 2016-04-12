@@ -26,6 +26,10 @@
         <br>
         <a href="New_Customer.jsp">New Customer</a>
         <a href="password_reset.jsp">Reset Password</a>
+
+        <p>
+            <a href="index.jsp">Return to Main Page</a>
+        </p>
     </body>
 </html>
 

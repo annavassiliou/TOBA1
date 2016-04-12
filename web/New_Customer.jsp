@@ -37,6 +37,10 @@
             <input type="submit" value="Submit" class="margin_left">
         </form>
 
+        <p>
+            <a href="index.jsp">Return to Main Page</a>
+        </p>
+
     </body>
 </html>
 

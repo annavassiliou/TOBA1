@@ -21,6 +21,10 @@
             <label>&nbsp;</label>
             <input type="submit" value="Reset" class="margin_left">
         </form>
+
+        <p>
+            <a href="index.jsp">Return to Main Page</a>
+        </p>
     </body>
 </html>
 

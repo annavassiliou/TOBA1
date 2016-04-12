@@ -3,6 +3,7 @@ package user.newCustomer;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import user.javabean.User;
 
 public class NewCustomerServlet extends HttpServlet {
 
@@ -31,8 +32,13 @@ public class NewCustomerServlet extends HttpServlet {
             String state = request.getParameter("state");
             String zipCode = request.getParameter("zipCode");
             String email = request.getParameter("email");
+            String userName = request.getParameter("userName");
+            String passWord = request.getParameter("passWord");
 
-
+            // store data in User object
+            User user = new User(firstName, lastName, phone, address, city, 
+                    state, zipCode, email, userName, passWord);
+            
             // validate the parameters
             String message;
             if (firstName == null || lastName == null || phone == null 
@@ -47,6 +53,7 @@ public class NewCustomerServlet extends HttpServlet {
                 message = null;
                 url = "/Success.jsp";
             }
+            request.setAttribute("user", user);
             request.setAttribute("message", message);
         }
         getServletContext()

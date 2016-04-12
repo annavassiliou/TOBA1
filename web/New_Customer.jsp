@@ -1,8 +1,7 @@
-<%-- 
-    Document   : New_Customer
-    Created on : Mar 29, 2016, 11:22:44 PM
-    Author     : Annie
---%>
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="/includes/header.html" />
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,23 +18,27 @@
         <form method="post" action="addCustomer">
             <input type="hidden" name="action" value="add">        
             <label class="pad_top">First Name:</label>
-            <input type="text" name="firstName"><br>
+            <input type="text" name="firstName" value="${user.firstName}"><br>
             <label class="pad_top">Last Name:</label>
-            <input type="text" name="lastName"><br>
+            <input type="text" name="lastName" value="${user.lastName}"><br>
             <label class="pad_top">Phone:</label>
-            <input type="text" name="phone"><br>
+            <input type="text" name="phone" value="${user.phone}"><br>
             <label class="pad_top">Address:</label>
-            <input type="text" name="address"><br>  
+            <input type="text" name="address" value="${user.address}"><br>  
             <label class="pad_top">City:</label>
-            <input type="text" name="city"><br>
+            <input type="text" name="city" value="${user.city}"><br>
             <label class="pad_top">State:</label>
-            <input type="text" name="state"><br>  
+            <input type="text" name="state" value="${user.state}"><br>  
             <label class="pad_top">Zip Code:</label>
-            <input type="text" name="zipCode"><br>
+            <input type="text" name="zipCode" value="${user.zipCode}"><br>
             <label class="pad_top">Email:</label>
-            <input type="email" name="email"><br>
+            <input type="email" name="email" value="${user.email}"><br>
             <label>&nbsp;</label>
             <input type="submit" value="Submit" class="margin_left">
         </form>
+
     </body>
 </html>
+
+<c:import url="/includes/footer.jsp" />
+

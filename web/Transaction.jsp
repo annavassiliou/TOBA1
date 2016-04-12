@@ -1,3 +1,8 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="/includes/header.html" />
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +11,13 @@
         <link rel="stylesheet" href="styles/main.css" type="text/css"/>
     </head>
     <body>
+
         <div><h1>TOBA Titan Online Banking Application</h1></div>
-        <a href="Login.html">Login</a><br>
-        <a href="New_Customer.jsp">New Customer</a>
+        <div><h2>Transactions</h2></div>
+
+
     </body>
 </html>
+
+<c:import url="/includes/footer.jsp" />
+

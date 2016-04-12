@@ -23,6 +23,7 @@
         <error-code>Java</error-code>
         <location>/Error_java.jsp</location>
     </error-page>
+    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/userLogin</url-pattern>
@@ -33,6 +34,15 @@
         <servlet-class>user.login.LoginServlet</servlet-class>
     </servlet>
 
+    <servlet-mapping>
+        <servlet-name>NewPassword</servlet-name>
+        <url-pattern>/resetPassword</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>NewPassword</servlet-name>
+        <servlet-class>user.newPassword.NewPassword</servlet-class>
+    </servlet>
     
     <session-config>
         <session-timeout>
@@ -41,7 +51,6 @@
     </session-config>
     
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

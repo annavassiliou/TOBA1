@@ -118,7 +118,7 @@ public class User implements Serializable {
     }
 
     public String getPassWord() {
-        String passWord = "welcome123";
+        String passWord = "welcome1";
         return passWord;
     }
 

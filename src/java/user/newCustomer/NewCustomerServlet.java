@@ -11,6 +11,8 @@ public class NewCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        ServletContext sc = getServletContext();
+
         String url = "/New_Customer.jsp";
 
         // get current action
@@ -35,17 +37,19 @@ public class NewCustomerServlet extends HttpServlet {
             String userName = lastName + zipCode;
             String passWord = "welcome1";
 
-            // store data in User object
-            User user = new User(firstName, lastName, phone, address, city, 
-                    state, zipCode, email, userName, passWord);
+            HttpSession session = request.getSession();
             
+            // store data in User object
+            User user = new User(firstName, lastName, phone, address, city,
+                    state, zipCode, email, userName, passWord);
+
             // validate the parameters
             String message;
-            if (firstName == null || lastName == null || phone == null 
-                    || address == null || city == null || state == null 
+            if (firstName == null || lastName == null || phone == null
+                    || address == null || city == null || state == null
                     || zipCode == null || email == null
-                    || firstName.isEmpty() || lastName.isEmpty() 
-                    || phone.isEmpty() || address.isEmpty() || city.isEmpty() 
+                    || firstName.isEmpty() || lastName.isEmpty()
+                    || phone.isEmpty() || address.isEmpty() || city.isEmpty()
                     || state.isEmpty() || zipCode.isEmpty() || email.isEmpty()) {
                 message = "Please fill out all the form fields.";
                 url = "/New_Customer.jsp";
@@ -55,6 +59,8 @@ public class NewCustomerServlet extends HttpServlet {
             }
             request.setAttribute("user", user);
             request.setAttribute("message", message);
+            session.setAttribute("passWord", passWord);
+            session.setAttribute("userName", userName);
         }
         getServletContext()
                 .getRequestDispatcher(url)

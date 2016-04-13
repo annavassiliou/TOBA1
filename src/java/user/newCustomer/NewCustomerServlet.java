@@ -11,7 +11,6 @@ public class NewCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        ServletContext sc = getServletContext();
 
         String url = "/New_Customer.jsp";
 

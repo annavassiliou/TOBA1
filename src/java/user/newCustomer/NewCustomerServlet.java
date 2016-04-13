@@ -32,8 +32,8 @@ public class NewCustomerServlet extends HttpServlet {
             String state = request.getParameter("state");
             String zipCode = request.getParameter("zipCode");
             String email = request.getParameter("email");
-            String userName = request.getParameter("userName");
-            String passWord = request.getParameter("passWord");
+            String userName = lastName + zipCode;
+            String passWord = "welcome1";
 
             // store data in User object
             User user = new User(firstName, lastName, phone, address, city, 

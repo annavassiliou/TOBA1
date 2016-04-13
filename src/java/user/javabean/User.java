@@ -109,7 +109,6 @@ public class User implements Serializable {
     }
 
     public String getUserName() {
-        String userName = lastName + zipCode;
         return userName;
     }
 
@@ -118,7 +117,6 @@ public class User implements Serializable {
     }
 
     public String getPassWord() {
-        String passWord = "welcome1";
         return passWord;
     }
 

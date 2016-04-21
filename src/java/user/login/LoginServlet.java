@@ -3,6 +3,7 @@ package user.login;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import user.javabean.User;
 
 public class LoginServlet extends HttpServlet {
 
@@ -13,24 +14,30 @@ public class LoginServlet extends HttpServlet {
 
         String username = request.getParameter("userUsername");
         String password = request.getParameter("userPassword");
+        String userName = request.getParameter("userName");
+        String passWord = request.getParameter("passWord");
         String url = "/Login.jsp";
 
-        // validate the parameters
-        boolean isValid = username.equals("jsmith@toba.com")
-                && password.equals("letmein");
-        if (isValid) {
-            url = "/Account_activity.jsp";
+        // Get the user from the session
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        // if the user from session is null redirect to registration page
+        if (user == null) {
+            url = "/New_customer.jsp";
         } else {
-            url = "/Login_failure.jsp";
+            // else validate username and pwd from form against the actual user object
+            boolean isValid = username.equals(userName)
+                    && password.equals(passWord);
+            if (isValid) {
+                url = "/Account_activity.jsp";
+            } else {
+                url = "/Login_failure.jsp";
+            }
         }
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
-        
 
     }
-    
-    
-
 
 }

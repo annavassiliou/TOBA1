@@ -3,6 +3,7 @@ package user.newPassword;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import user.javabean.User;
 
 public class NewPassword extends HttpServlet {
 
@@ -13,6 +14,15 @@ public class NewPassword extends HttpServlet {
 
         String newPassword = request.getParameter("newPassword");
         String url = "/password_reset.jsp";
+
+        // Get the session        
+        // Get the user object out of the session
+        // Call setPassword on the user object and then put it back in the session
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("resetPassword");
+        if (newPassword == null) {
+            newPassword = new User();
+        }
 
         String message;
         if (newPassword == null || newPassword.isEmpty()) {

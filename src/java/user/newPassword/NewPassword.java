@@ -29,7 +29,7 @@ public class NewPassword extends HttpServlet {
             url = "/Login.jsp";
             session.setAttribute("user", user);
             message = null;
-            AccountDB.update(user);
+           // AccountDB.update(user);
         }
         getServletContext()
                 .getRequestDispatcher(url)

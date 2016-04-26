@@ -53,6 +53,7 @@ public class NewCustomerServlet extends HttpServlet {
                 message = null;
                 url = "/Success.jsp";
                 session.setAttribute("user", user);
+
             }
             request.setAttribute("message", message);
 

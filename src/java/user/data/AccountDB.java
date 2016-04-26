@@ -23,9 +23,9 @@ public class AccountDB {
         PreparedStatement ps = null;
 
         String query
-                = "INSERT INTO User (FirstName, LastName, Phone, Address, City, "
-                + "State, ZipCode, Email, UserName, UserPassWord) "
-                + "VALUES (?, ?, ?)";
+                = "INSERT INTO user (firstName, lastName, phone, address, city, "
+                + "state, zipCode, email, userName, userPassWord) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             ps = connection.prepareStatement(query);
@@ -54,8 +54,8 @@ public class AccountDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "UPDATE User SET "
-                + "FirstName = ?, "
+        String query = "UPDATE user SET "
+               /* + "FirstName = ?, "
                 + "LastName = ? "
                 + "Phone = ? "
                 + "Address = ? "
@@ -63,11 +63,11 @@ public class AccountDB {
                 + "State = ? "
                 + "ZipCode = ? "
                 + "Email = ? "
-                + "UserName = ? "
-                + "WHERE UserPassWord = ?";
+                + "UserName = ? " */
+                + "WHERE userPassWord = ?";
 
         try {
-            ps.setString(1, user.getFirstName());
+          /*  ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
             ps.setString(3, user.getPhone());
             ps.setString(4, user.getAddress());
@@ -75,7 +75,7 @@ public class AccountDB {
             ps.setString(6, user.getState());
             ps.setString(7, user.getZipCode());
             ps.setString(8, user.getEmail());
-            ps.setString(9, user.getUserName());
+            ps.setString(9, user.getUserName()); */
             ps.setString(10, user.getPassWord());
 
             return ps.executeUpdate();
@@ -93,8 +93,8 @@ public class AccountDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        String query = "DELETE FROM User "
-                + "WHERE UserName = ?";
+        String query = "DELETE FROM user "
+                + "WHERE userName = ?";
         try {
             ps = connection.prepareStatement(query);
             ps.setString(9, user.getUserName());
@@ -104,66 +104,6 @@ public class AccountDB {
             System.out.println(e);
             return 0;
         } finally {
-            DBUtil.closePreparedStatement(ps);
-            pool.freeConnection(connection);
-        }
-    }
-
-    public static boolean userNameExists(String userName) {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        Connection connection = pool.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String query = "SELECT UserName FROM User "
-                + "WHERE UserName = ?";
-        try {
-            ps = connection.prepareStatement(query);
-            ps.setString(9, userName);
-            rs = ps.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            System.out.println(e);
-            return false;
-        } finally {
-            DBUtil.closeResultSet(rs);
-            DBUtil.closePreparedStatement(ps);
-            pool.freeConnection(connection);
-        }
-    }
-
-    public static User selectUser(String userName) {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        Connection connection = pool.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String query = "SELECT * FROM User "
-                + "WHERE UserName = ?";
-        try {
-            ps = connection.prepareStatement(query);
-            ps.setString(9, userName);
-            rs = ps.executeQuery();
-            User user = null;
-            if (rs.next()) {
-                user = new User();
-                user.setFirstName(rs.getString("FirstName"));
-                user.setLastName(rs.getString("LastName"));
-                user.setPhone(rs.getString("Phone"));
-                user.setAddress(rs.getString("Address"));
-                user.setCity(rs.getString("City"));
-                user.setState(rs.getString("State"));
-                user.setZipCode(rs.getString("ZipCode"));
-                user.setEmail(rs.getString("Email"));
-                user.setUserName(rs.getString("UserName"));
-                user.setPassWord(rs.getString("UserPassWord"));
-            }
-            return user;
-        } catch (SQLException e) {
-            System.out.println(e);
-            return null;
-        } finally {
-            DBUtil.closeResultSet(rs);
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }

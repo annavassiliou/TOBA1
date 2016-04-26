@@ -152,8 +152,8 @@ public class AccountDB {
                 user.setPhone(rs.getString("Phone"));
                 user.setAddress(rs.getString("Address"));
                 user.setCity(rs.getString("City"));
-                user.setState(rs.setString("State"));
-                user.setZipCode(rs.setString("ZipCode"));
+                user.setState(rs.getString("State"));
+                user.setZipCode(rs.getString("ZipCode"));
                 user.setEmail(rs.getString("Email"));
                 user.setUserName(rs.getString("UserName"));
                 user.setPassWord(rs.getString("UserPassWord"));

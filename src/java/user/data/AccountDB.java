@@ -23,8 +23,8 @@ public class AccountDB {
         PreparedStatement ps = null;
 
         String query
-                = "INSERT INTO User (firstName, lastName, phone, address, city, "
-                + "state, zipCode, email, userName, userPassWord) "
+                = "INSERT INTO User (FirstName, LastName, Phone, Address, City, "
+                + "State, ZipCode, Email, UserName, UserPassWord) "
                 + "VALUES (?, ?, ?)";
 
         try {

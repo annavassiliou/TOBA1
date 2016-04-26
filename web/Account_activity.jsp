@@ -12,7 +12,8 @@
     <body>
         <div><h1>TOBA Titan Online Banking Application</h1></div>
         <div><h2>Account Activity</h2></div>
-
+        <c:if test = "${session != null}">Welcome</c:if>
+        <c:if test = "${session == null}">You are not logged in</c:if>
         <p>
             <a href="index.jsp">Return to Main Page</a>
         </p>

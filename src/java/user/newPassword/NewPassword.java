@@ -21,9 +21,10 @@ public class NewPassword extends HttpServlet {
         User user = new User();
         user.setUserName(userName);
         user.setPassWord(newPassWord);
-
+        
+        String message;
         if (newPassWord == null || newPassWord.isEmpty()) {
-            String message = "Please fill out all the form fields.";
+            message = "Please fill out all the form fields.";
             url = "/password_reset.jsp";
             session.setAttribute("message", message);
         } else {
@@ -31,6 +32,7 @@ public class NewPassword extends HttpServlet {
             user.setPassWord(passWord);      
             url = "/Account_activity.jsp";
             session.setAttribute("user", user);
+                            message = null;
         }
         getServletContext()
                 .getRequestDispatcher(url)

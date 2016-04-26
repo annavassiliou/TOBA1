@@ -35,7 +35,6 @@ public class NewCustomerServlet extends HttpServlet {
             String email = request.getParameter("email");
 
             HttpSession session = request.getSession();
-            
             // store data in User object
             User user = new User(firstName, lastName, phone, address, city,
                     state, zipCode, email);
@@ -53,6 +52,7 @@ public class NewCustomerServlet extends HttpServlet {
             } else {
                 message = null;
                 url = "/Success.jsp";
+                session.setAttribute("user", user);
             }
             request.setAttribute("message", message);
 

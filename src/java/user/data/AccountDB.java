@@ -149,7 +149,14 @@ public class AccountDB {
                 user = new User();
                 user.setFirstName(rs.getString("FirstName"));
                 user.setLastName(rs.getString("LastName"));
+                user.setPhone(rs.getString("Phone"));
+                user.setAddress(rs.getString("Address"));
+                user.setCity(rs.getString("City"));
+                user.setState(rs.setString("State"));
+                user.setZipCode(rs.setString("ZipCode"));
                 user.setEmail(rs.getString("Email"));
+                user.setUserName(rs.getString("UserName"));
+                user.setPassWord(rs.getString("UserPassWord"));
             }
             return user;
         } catch (SQLException e) {

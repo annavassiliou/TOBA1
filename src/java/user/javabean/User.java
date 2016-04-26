@@ -15,7 +15,6 @@ public class User implements Serializable {
     private String userName;
     private String passWord;
 
-
     public User(String firstName, String lastName, String phone, String address,
             String city, String state, String zipCode, String email) {
         this.firstName = firstName;
@@ -28,6 +27,9 @@ public class User implements Serializable {
         this.email = email;
         this.userName = lastName + zipCode;
         this.passWord = "welcome1";
+    }
+
+    public User() {
     }
 
     public String getFirstName() {

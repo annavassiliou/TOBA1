@@ -12,31 +12,34 @@ public class NewPassword extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        String newPassword = request.getParameter("newPassword");
-        String url = "/password_reset.jsp";
+        String url;
+        String userName = request.getParameter("userUsername");
+        String passWord = request.getParameter("userPassword");
+        String newPassWord = request.getParameter("newPassword");
 
-        // Get the session        
-        // Get the user object out of the session
-        // Call setPassword on the user object and then put it back in the session
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("resetPassword");
-        if (newPassword == null) {
-            newPassword = new User();
-        }
+        User user = new User();
+        user.setUserName(userName);
+        user.setPassWord(newPassWord);
 
-        String message;
-        if (newPassword == null || newPassword.isEmpty()) {
-            message = "Please fill out all the form fields.";
+        if (newPassWord == null || newPassWord.isEmpty()) {
+            String message = "Please fill out all the form fields.";
             url = "/password_reset.jsp";
+            session.setAttribute("message", message);
         } else {
-            message = null;
+            passWord = newPassWord;
+            user.setPassWord(passWord);      
             url = "/Account_activity.jsp";
+            session.setAttribute("user", user);
         }
-        request.setAttribute("message", message);
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
-
     }
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
+    }
 }

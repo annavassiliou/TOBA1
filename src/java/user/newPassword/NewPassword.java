@@ -13,24 +13,19 @@ public class NewPassword extends HttpServlet {
             throws ServletException, IOException {
 
         String url;
-        String userName = request.getParameter("userUsername");
-        String passWord = request.getParameter("userPassword");
-        String newPassWord = request.getParameter("newPassword");
+        String password = request.getParameter("newPassword");
 
         HttpSession session = request.getSession();
-        User user = new User();
-        user.setUserName(userName);
-        user.setPassWord(newPassWord);
+        User user = (User) session.getAttribute("user");
 
         String message;
-        if (newPassWord == null || newPassWord.isEmpty()) {
+        if (password == null || password.isEmpty()) {
             message = "Please fill out all the form fields.";
             url = "/password_reset.jsp";
             session.setAttribute("message", message);
         } else {
-            passWord = newPassWord;
-            user.setPassWord(passWord);
-            url = "/Account_activity.jsp";
+            user.setPassWord(password);
+            url = "/Login.jsp";
             session.setAttribute("user", user);
             message = null;
         }

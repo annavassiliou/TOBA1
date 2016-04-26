@@ -16,10 +16,6 @@
         <p><i>${message}</i></p>
         <form method="post" action="resetPassword">
             <input type="hidden" name="action" value="reset"> 
-            <label class="pad_top">Username:</label>
-            <input type="text" name="userUsername" required><br>
-            <label class="pad_top">Password:</label>
-            <input type="password" name="userPassword" required><br> 
             <label class="pad_top">New Password:</label>
             <input type="password" name="newPassword" value="${passWord}"><br>     
             <label>&nbsp;</label>

@@ -21,7 +21,6 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-
         if (username.equals(user.getUserName()) 
                 && password.equals(user.getPassWord())) {
             url = "/Account_activity.jsp";

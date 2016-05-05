@@ -67,7 +67,7 @@
         </form-login-config>
     </login-config>
     <welcome-file-list>
-        <welcome-file>reports.jsp</welcome-file>
+        <welcome-file>/reports.jsp</welcome-file>
     </welcome-file-list>
     
     <session-config>

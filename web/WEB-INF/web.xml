@@ -39,7 +39,8 @@
     <servlet-class>user.data.ReportsServlet</servlet-class>
     </servlet>
     
-    <servlet-mapping>ReportsServlet</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportsServlet</servlet-name>
     <url-pattern>/reports.jsp</url-pattern>
     </servlet-mapping>
 

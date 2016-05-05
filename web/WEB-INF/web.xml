@@ -34,6 +34,42 @@
         <servlet-class>user.newPassword.NewPassword</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>ReportsServlet</servlet-name>
+    <servlet-class>user.data.ReportsServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>ReportsServlet</servlet-mapping>
+    <url-pattern>/reports.jsp</url-pattern>
+    </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <!-- Authorize the admin roles -->
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+        <!-- Require a secure connection -->
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <!-- Use form-based authentication -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/admin/login.html</form-login-page>
+            <form-error-page>/admin/login_error.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    <welcome-file-list>
+        <welcome-file>reports.jsp</welcome-file>
+    </welcome-file-list>
+    
     <session-config>
         <session-timeout>
             30

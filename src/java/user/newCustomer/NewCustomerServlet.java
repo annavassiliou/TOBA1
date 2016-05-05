@@ -55,8 +55,6 @@ public class NewCustomerServlet extends HttpServlet {
                 message = null;
                 url = "/Success.jsp";
                 session.setAttribute("user", user);
-               // double savingsBal = 25.00;
-               // double checkingBal = 0.00;
                 UserDB.insert(user);
                // AccountDB.insert(user);
             }

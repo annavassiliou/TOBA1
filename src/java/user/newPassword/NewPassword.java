@@ -5,6 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import user.javabean.User;
 import user.data.AccountDB;
+import user.data.UserDB;
 
 public class NewPassword extends HttpServlet {
 
@@ -29,7 +30,7 @@ public class NewPassword extends HttpServlet {
             url = "/Login.jsp";
             session.setAttribute("user", user);
             message = null;
-            AccountDB.update(user);
+            UserDB.update(user);
         }
         getServletContext()
                 .getRequestDispatcher(url)

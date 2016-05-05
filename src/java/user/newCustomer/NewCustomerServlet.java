@@ -5,6 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import user.javabean.User;
 import user.data.AccountDB;
+import user.data.UserDB;
 
 public class NewCustomerServlet extends HttpServlet {
 
@@ -54,9 +55,10 @@ public class NewCustomerServlet extends HttpServlet {
                 message = null;
                 url = "/Success.jsp";
                 session.setAttribute("user", user);
-                double savingsBal = 25.00;
-                double checkingBal = 0.00;
-                AccountDB.insert(user);
+               // double savingsBal = 25.00;
+               // double checkingBal = 0.00;
+                UserDB.insert(user);
+               // AccountDB.insert(user);
             }
             request.setAttribute("message", message);
 

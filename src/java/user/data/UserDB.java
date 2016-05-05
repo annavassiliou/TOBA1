@@ -1,20 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package user.data;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import user.account.Account;
 
-public class AccountDB {
+import user.javabean.User;
 
-    public static void insert (Account account) {
+public class UserDB {
+
+    public static void insert(User user) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
-        trans.begin();
+        trans.begin();        
         try {
-            em.persist(account);
+            em.persist(user);
             trans.commit();
         } catch (Exception e) {
             System.out.println(e);
@@ -24,12 +29,12 @@ public class AccountDB {
         }
     }
 
-    public static void update(Account account) {
+    public static void update(User user) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
-        trans.begin();
+        trans.begin();       
         try {
-            em.merge(account);
+            em.merge(user);
             trans.commit();
         } catch (Exception e) {
             System.out.println(e);
@@ -37,50 +42,43 @@ public class AccountDB {
         } finally {
             em.close();
         }
-
     }
 /*
-    public static void delete(Account account) {
+    public static void delete(User user) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
-        trans.begin();
+        trans.begin();        
         try {
-            em.remove(em.merge(account));
+            em.remove(em.merge(user));
             trans.commit();
         } catch (Exception e) {
             System.out.println(e);
             trans.rollback();
         } finally {
             em.close();
-        }
-
+        }       
     }
 
-    public static Account selectAccount(String userName, Account.Type type) {
+    public static User selectUser(String email) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
-        TypedQuery<Account> q = em.createQuery("SELECT a FROM Account a WHERE a.user.username = :username AND a.type = :accType", Account.class);
-        q.setParameter("userName", userName);
-        q.setParameter("accType", type);
+        String qString = "SELECT u FROM User u " +
+                "WHERE u.email = :email";
+        TypedQuery<User> q = em.createQuery(qString, User.class);
+        q.setParameter("email", email);
         try {
-            List<Account> accounts = q.getResultList();
-            return accounts.get(0);
-        } catch (IndexOutOfBoundsException iobe) {
+            User user = q.getSingleResult();
+            return user;
+        } catch (NoResultException e) {
             return null;
         } finally {
             em.close();
         }
     }
 
-    public static boolean userNameExists(String userName) {
-        if (selectAccount(userName, Account.Type.Checking) != null) {
-            return true;
-        } else {
-            return selectAccount(userName, Account.Type.Savings) != null;
-        }
-    }
-
-    public static boolean userNameExists(String userName, Account.Type type) {
-        return selectAccount(userName, type) != null;
+    public static boolean emailExists(String email) {
+        User u = selectUser(email);   
+        return u != null;
     }
 */
 }
+ 

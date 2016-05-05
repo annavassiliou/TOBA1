@@ -13,17 +13,7 @@
         <servlet-name>NewCustomerServlet</servlet-name>
         <url-pattern>/addCustomer</url-pattern>
     </servlet-mapping>
-    
-    <error-page>
-        <error-code>404</error-code>
-        <location>/Error_404.jsp</location>
-    </error-page>
-    
-    <error-page>
-        <error-code>Java</error-code>
-        <location>/Error_java.jsp</location>
-    </error-page>
-    
+
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/userLogin</url-pattern>

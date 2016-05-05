@@ -18,9 +18,6 @@ public class TransactionServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         User user = (User)request.getSession().getAttribute("user");
         
-        String fromAcct = request.getParameter("fromAcct");
-        String toAcct = request.getParameter("toAcct");
-        
         String url = "/Account_activity.jsp";
     }
 

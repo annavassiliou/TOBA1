@@ -14,7 +14,8 @@
 
         <div><h1>TOBA Titan Online Banking Application</h1></div>
         <a href="Login.jsp">Login</a><br>
-        <a href="New_Customer.jsp">New Customer</a>
+        <a href="New_Customer.jsp">New Customer</a><br>
+
         
 
     </body>

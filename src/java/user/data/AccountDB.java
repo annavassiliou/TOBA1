@@ -7,7 +7,7 @@ import javax.persistence.EntityTransaction;
 import user.account.Account;
 
 public class AccountDB {
-
+/*
     public static void insert (Account account) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
@@ -37,5 +37,5 @@ public class AccountDB {
             em.close();
         }
 
-    }
+    } */
 }

@@ -1,11 +1,5 @@
 package user.transaction;
 
-import user.javabean.User;
-import user.account.Account;
-import user.account.Transaction;
-import user.data.AccountDB;
-import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

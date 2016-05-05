@@ -7,6 +7,7 @@ import javax.servlet.http.*;
 import user.javabean.User;
 import user.data.AccountDB;
 import user.data.UserDB;
+import user.util.PasswordUtil;
 
 public class NewCustomerServlet extends HttpServlet {
 
